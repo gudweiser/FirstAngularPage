@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class StudentService {
 
-  private URL = 'http://localhost:4200/api/v1/student';
+  private URL = 'http://localhost:8080/api/v1/student';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
