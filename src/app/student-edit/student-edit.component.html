@@ -1,0 +1,18 @@
+<section *ngIf="student">
+  <h2>Edycja #{{student.id}} <i>{{student.name}}</i></h2>
+
+  <div>
+    <label for="name">Imię i nazwisko:</label>
+    <input type="text" id="name" [(ngModel)]="student.name">
+  </div>
+
+  <div>
+    <label for="email">Adres e-mail:</label>
+    <input type="email" id="email" [(ngModel)]="student.email">
+  </div>
+
+  <div>
+    <button (click)="goBack()" class="button">Anuluj</button>
+    <button (click)="save()" class="button button-green">Zapisz</button>
+  </div>
+</section>
