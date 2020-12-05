@@ -11,6 +11,8 @@ export class StudentsComponent implements OnInit {
 
   students: Student[] = [{id: 1, name: "Dominik", email: "zdjasinski@gmail.com"}]
 
+  
+
   constructor(private studentService: StudentService) {  }
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class StudentsComponent implements OnInit {
 
     // Zaprzestanie wykonywania, kiedy pola są puste
     if (!name || !email) {
+      // todo uzupełnić
       return;
     }
 
