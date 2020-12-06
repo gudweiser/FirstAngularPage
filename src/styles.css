@@ -85,3 +85,7 @@ table tbody > tr:nth-child(odd) {
     max-width: 960px;
   }
 }
+
+.error-msg {
+  color: red;
+}
