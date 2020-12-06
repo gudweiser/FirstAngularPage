@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from '../interfaces/student.interface';
-import {ActivatedRoute} from '@angular/router';
-import {StudentService} from '../services/student.service';
+import { Student } from '../interfaces/student.interface';
+import { ActivatedRoute } from '@angular/router';
+import { StudentService } from '../services/student.service';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './student-edit.component.html',
   styleUrls: ['./student-edit.component.css']
 })
+
 export class StudentEditComponent implements OnInit {
   student: Student;
 

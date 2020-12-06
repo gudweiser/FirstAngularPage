@@ -3,9 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Student} from '../interfaces/student.interface';
 import {Observable} from 'rxjs';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
