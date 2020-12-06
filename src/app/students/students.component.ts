@@ -30,7 +30,9 @@ export class StudentsComponent implements OnInit {
 
   getStudents(): void {
     this.studentService.getStudents()
-      .subscribe(students => {this.students = students});
+      .subscribe(students => {
+        this.students = students
+      });
   }
 
   delete(student: Student): void {

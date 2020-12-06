@@ -5,6 +5,7 @@
       <th>#</th>
       <th>Imię i nazwisko</th>
       <th>Adres e-mail</th>
+      <th>Data utwporzenia</th>
       <th>Akcje</th>
     </tr>
     </thead>
@@ -14,6 +15,9 @@
     <td>{{student.name}}</td>
     <td>
       <a href="mailto:{{student.email}}">{{student.email}}</a>
+    </td>
+    <td>
+      {{student.createDate | date: 'd-m-Y'}}
     </td>
     <td>
       <a routerLink="/edit/{{student.id}}" class="button button-green">Edytuj</a>
