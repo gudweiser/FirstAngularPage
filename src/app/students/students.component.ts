@@ -9,18 +9,7 @@ import {Student} from '../interfaces/student.interface';
 })
 export class StudentsComponent implements OnInit {
 
-  @ViewChild('name')
-  nameInput: ElementRef;
-  @ViewChild('email')
-  emailInput: ElementRef;
-
-
-
-  invalidName = false;
-  emailIsBlank = false;
-  invalidEmail = false;
-
-  students: Student[] = [{id: 1, name: "Dominik", email: "zdjasinski@gmail.com"}]
+  students: Student[];
 
   constructor(private studentService: StudentService) {  }
 
@@ -41,38 +30,15 @@ export class StudentsComponent implements OnInit {
       this.students = this.students.filter(s => s !== student);
     });
   }
-  add(name: string, email: string): void {
-    // Usunięcie białych znaków z danych
-    name = name.trim();
-    email = email.trim();
 
-    // Zaprzestanie wykonywania, kiedy pola są puste
-    this.invalidName = !name;
-    this.emailIsBlank = !email;
-
-    // Zaprzestanie wykonywania, kiedy adres e-mail nie zawiera "@"
-    if (email.indexOf('@') < 1) {
-      this.emailIsBlank = true;
-    } else this.emailIsBlank = false;
-
-    if(this.invalidEmail || this.emailIsBlank || this.invalidEmail) {
-      return;
-    }
-
-    this.invalidName = false;
-    this.emailIsBlank = false;
-    this.invalidEmail = false;
-
-    // Przesłanie danych do serwera i zaktualizowanie lokalnej tablicy
-    this.studentService.addStudent({ name, email } as Student)
-      .subscribe(student=> {
-        this.students.push(student);
-
-        this.nameInput.nativeElement.value = '';
-        this.emailInput.nativeElement.value = '';
-      });
+  onStudentAddedListener(addedStudent: Student) {
+    this.students.push(addedStudent);
   }
 
-
-
 }
+
+
+
+
+
+

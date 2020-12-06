@@ -5,7 +5,7 @@
       <th>#</th>
       <th>Imię i nazwisko</th>
       <th>Adres e-mail</th>
-      <th>Data utwporzenia</th>
+<!--      <th>Data utworzenia</th>-->
       <th>Akcje</th>
     </tr>
     </thead>
@@ -16,9 +16,9 @@
     <td>
       <a href="mailto:{{student.email}}">{{student.email}}</a>
     </td>
-    <td>
+<!--    <td>
       {{student.createDate | date: 'd-m-Y'}}
-    </td>
+    </td>-->
     <td>
       <a routerLink="/edit/{{student.id}}" class="button button-green">Edytuj</a>
       <button class="button button-red" (click)="delete(student)">Usuń</button>
@@ -28,18 +28,5 @@
   </table>
 </section>
 
-<div class="new-student">
-  <h2>Dodaj nowego studenta</h2>
-  <label for="name">Imię i nazwisko:</label>
-  <input type="text" id="name" #name>
-  <p *ngIf="invalidName">Pole jest wymagane</p>
+<app-add-student defaultName="Marek" (onStudentAdded)="onStudentAddedListener($event)"></app-add-student>
 
-  <br>
-
-  <label for="email">Adres e-mail:</label>
-  <input type="email" id="email" #email>
-  <p *ngIf="emailIsBlank">Pole jest wymagane</p>
-  <p *ngIf="invalidEmail">Adres email jest niepoprawny</p>
-
-  <button (click)="add(name.value, email.value);">Dodaj</button>
-</div>

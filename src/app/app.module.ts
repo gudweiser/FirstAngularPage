@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { StudentEditComponent } from './student-edit/student-edit.component';
+import { AddStudentComponent } from './add-student/add-student.component';
 
 
 
@@ -15,6 +16,7 @@ import { StudentEditComponent } from './student-edit/student-edit.component';
     AppComponent,
     StudentsComponent,
     StudentEditComponent,
+    AddStudentComponent,
 
   ],
   imports: [
