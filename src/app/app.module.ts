@@ -10,7 +10,6 @@ import { StudentEditComponent } from './student-edit/student-edit.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

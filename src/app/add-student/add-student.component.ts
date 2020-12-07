@@ -2,7 +2,6 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, V
 import {Student} from '../interfaces/student.interface';
 import {StudentService} from '../services/student.service';
 
-
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
