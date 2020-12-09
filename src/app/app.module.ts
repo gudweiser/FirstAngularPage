@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { StudentEditComponent } from './student-edit/student-edit.component';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
     StudentsComponent,
     StudentEditComponent,
     AddStudentComponent,
+    NotFoundComponent,
 
   ],
   imports: [
