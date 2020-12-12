@@ -6,6 +6,7 @@
       <th>Imię i nazwisko</th>
       <th>Adres e-mail</th>
       <th>Data utworzenia</th>
+      <th>Data modyfikacji</th>
       <th>Akcje</th>
     </tr>
     </thead>
@@ -17,7 +18,10 @@
       <a href="mailto:{{student.email}}">{{student.email}}</a>
     </td>
     <td>
-      {{student.createDate | date: 'd-m-Y'}}
+      {{student.createdDate | date: 'dd-MM-Y'}}
+    </td>
+    <td>
+      {{student.updateDate | date: 'dd-MM-Y'}}
     </td>
     <td>
       <a routerLink="/edit/{{student.id}}" class="button button-green">Edytuj</a>
