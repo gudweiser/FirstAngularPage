@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Student} from '../interfaces/student.interface';
 import {StudentService} from '../services/student.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-add-student',
@@ -13,12 +14,8 @@ export class AddStudentComponent implements OnInit {
   constructor(private studentService: StudentService) {
   }
 
-  @ViewChild('name')
-  nameInput: ElementRef;
-  @ViewChild('email')
-  emailInput: ElementRef;
-  @Input()
-  defaultName = 'Dominik';
+  @ViewChild('newStudentForm')
+  newStudentForm: NgForm;
 
   @Output()
   onStudentAdded = new EventEmitter<Student>();
@@ -30,33 +27,16 @@ export class AddStudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(name: string, email: string): void {
-    // Usunięcie białych znaków z danych
-    name = name.trim();
-    email = email.trim();
+  onStudentFormSubmit() {
+    console.log(this.newStudentForm)
 
-    // Zaprzestanie wykonywania, kiedy pola są puste
-    this.invalidName = !name;
-    this.emailIsBlank = !email;
-    // Zaprzestanie wykonywania, kiedy adres e-mail nie zawiera "@"
-    this.invalidEmail = email.indexOf('@') < 1;
+    const name = this.newStudentForm.value.studentName;
+    const email = this.newStudentForm.value.email;
 
-    if (this.invalidEmail || this.emailIsBlank || this.invalidName) {
-      return;
-    }
-
-    this.invalidEmail = false;
-    this.invalidName = false;
-    this.emailIsBlank = false;
-
-
-    // Przesłanie danych do serwera i zaktualizowanie lokalnej tablicy
     this.studentService.addStudent({name, email} as Student)
       .subscribe((student: Student) => {
         this.onStudentAdded.emit(student);
-        this.nameInput.nativeElement.value = '';
-        this.emailInput.nativeElement.value = '';
+        this.newStudentForm.reset();
       });
-
   }
 }
