@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import { Student } from '../interfaces/student.interface';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../services/student.service';
 import { Location } from '@angular/common';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-student-edit',
@@ -18,6 +19,13 @@ export class StudentEditComponent implements OnInit {
     private studentService: StudentService,
     private location: Location
   ) {}
+
+  @ViewChild('studentUpdateForm')
+  studentUpdateForm: NgForm;
+
+  @Output()
+  updateStudent = new EventEmitter<Student>();
+
 
   ngOnInit(): void {
     this.getStudent();
@@ -35,10 +43,21 @@ export class StudentEditComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  updateStudentFormSubmit() {
     // Zapisuje dane i przekierowuje do poprzedniego widoku
-    this.studentService.updateStudent(this.student)
-      .subscribe(() => this.goBack());
+
+    console.log("Hej")
+    console.log(this.studentUpdateForm)
+
+    const name = this.studentUpdateForm.value.studentName;
+    const email = this.studentUpdateForm.value.email;
+
+    this.studentService.updateStudent({name, email} as Student)
+      .subscribe((student: Student) => {
+        this.updateStudent.emit(student);
+
+        this.goBack()
+      });
   }
 
 }
