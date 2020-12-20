@@ -48,16 +48,23 @@ export class StudentEditComponent implements OnInit {
 
     console.log("Hej")
     console.log(this.studentUpdateForm)
+    console.log(this.student);
 
     const name = this.studentUpdateForm.value.studentName;
     const email = this.studentUpdateForm.value.email;
+    const id = this.student.id ;
 
-    this.studentService.updateStudent({name, email} as Student)
+
+    console.log(id + " " + name + " " + email);
+
+    this.studentService.updateStudent({id, name, email} as Student)
       .subscribe((student: Student) => {
         this.updateStudent.emit(student);
 
-        this.goBack()
       });
+
+    this.goBack()
+
   }
 
 }

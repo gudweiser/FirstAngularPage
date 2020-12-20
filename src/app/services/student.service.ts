@@ -24,6 +24,7 @@ export class StudentService {
     return this.http.get<Student>(url);
   }
   updateStudent(student: Student): Observable<Student> {
+
     const url = `${this.URL}/${student.id}`;
     return this.http.put<Student>(url, student, this.httpOptions);
   }

@@ -1,26 +1,35 @@
-<form class="update-student" (ngSubmit)="updateStudentFormSubmit()" #studentUpdateForm="ngForm">
+<form class="update-student" *ngIf="student" (ngSubmit)="updateStudentFormSubmit()" #studentUpdateForm="ngForm">
   <h2>Edycja #
 
-    <!--{{student.id}} <i>{{student.name}}</i>-->
+    {{student.id}} <i>{{student.name}}</i>
 
   </h2>
+
+<!--  <div class="form-group">
+    <label for="name">ID</label>
+    <input type="id" id="id"
+           id="studentID"
+           #studentID="ngModel"
+           ngModel
+    >
+  </div>-->
 
 
   <div class="form-group">
     <label for="name">Imię i nazwisko:</label>
     <input type="text" id="name"
-    name="studentName"
-    #studentName="ngModel"
-    ngModel
+           name="studentName"
+           #studentName="ngModel"
+           ngModel
     >
   </div>
 
   <div class="form-group">
     <label for="email">Adres e-mail:</label>
     <input type="email" id="email"
-    name="email"
-    #email="ngModel"
-    ngModel
+           name="email"
+           #email="ngModel"
+           ngModel
     >
   </div>
 
