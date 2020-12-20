@@ -47,26 +47,15 @@ export class StudentEditComponent implements OnInit {
 
   updateStudentFormSubmit() {
     // Zapisuje dane i przekierowuje do poprzedniego widoku
-
-    console.log("Hej")
-    console.log(this.studentUpdateForm)
-    console.log(this.student);
-
     const name = this.studentUpdateForm.value.studentName;
     const email = this.studentUpdateForm.value.email;
     const id = this.student.id ;
 
-
-    console.log(id + " " + name + " " + email);
-
     this.studentService.updateStudent({id, name, email} as Student)
       .subscribe((student: Student) => {
         this.updateStudent.emit(student);
-
       });
-
     this.goBack()
-
   }
 
 }

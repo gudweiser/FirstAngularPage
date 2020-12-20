@@ -4,25 +4,31 @@
   <div class="form-group">
     <label for="name">Imię i nazwisko:</label>
     <input type="text" id="name"
-           name="studentName"
+           name="studentName" required=""
            #studentName="ngModel"
            ngModel
            [(ngModel)]="student.name"
     >
+    <p class="error-msg" *ngIf="!studentName.valid" >Pole jest wymagane</p>
   </div>
 
   <div class="form-group">
     <label for="email">Adres e-mail:</label>
-    <input type="email" id="email"
+    <input type="email" id="email" required email
            name="email"
            #email="ngModel"
            ngModel
            [(ngModel)]="student.email"
     >
+    <p class="error-msg" *ngIf="!email.valid && email.value ==''">Pole jest wymagane</p>
+    <p class="error-msg" *ngIf="!email.valid && email.value !==''">Adres email jest niepoprawny</p>
   </div>
 
   <div>
     <button type="button" class="btn btn-warning" (click)="goBack()" >Anuluj</button>
-    <button type="button" class="btn btn-success" type="submit">Zapisz</button>
+    <button type="submit"
+            class="btn btn-success"
+            [disabled]="studentUpdateForm.pristine || !studentUpdateForm.valid">
+            Zapisz</button>
   </div>
 </form>
