@@ -13,12 +13,14 @@ import {NgForm} from '@angular/forms';
 
 export class StudentEditComponent implements OnInit {
   student: Student;
+  userNameBeforeUpdate;
 
   constructor(
     private route: ActivatedRoute,
     private studentService: StudentService,
-    private location: Location
-  ) {}
+    private location: Location,
+
+  ) {  }
 
   @ViewChild('studentUpdateForm')
   studentUpdateForm: NgForm;
