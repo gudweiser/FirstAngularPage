@@ -19,7 +19,7 @@
        #email="ngModel"
        ngModel
   >
-  <p class="error-msg" *ngIf="!email.valid && email.touched && email.value ==''">Pole jest wymagane</p>
+  <p class="error-msg" *ngIf="!email.valid && email.touched && email.value ===''">Pole jest wymagane</p>
   <p class="error-msg" *ngIf="!email.valid && email.touched && email.value !==''">Adres email jest niepoprawny</p>
   </div>
 
