@@ -24,8 +24,10 @@
       {{student.updateDate | date: 'dd-MM-Y'}}
     </td>
     <td>
-      <a routerLink="/edit/{{student.id}}" class="button button-green">Edytuj</a>
-      <button class="button button-red" (click)="delete(student)">Usuń</button>
+      <a routerLink="/edit/{{student.id}}">
+        <button type="button class" class="btn btn-warning mr-2">Edytuj</button>
+      </a>
+      <button type="button" class="btn btn-danger" (click)="delete(student)">Usuń</button>
     </td>
   </tr>
   </tbody>

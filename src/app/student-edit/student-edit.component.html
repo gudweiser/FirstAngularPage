@@ -2,7 +2,7 @@
   <h2>Edycja # {{student.id}} <i>{{student.name}}</i></h2>
 
   <div class="form-group">
-    <label for="name">Imię i nazwisko:</label>
+    <label for="name" class="col-sm-2 col-from-label">Imię i nazwisko:</label>
     <input type="text" id="name"
            name="studentName" required
            #studentName="ngModel"
@@ -13,7 +13,7 @@
   </div>
 
   <div class="form-group">
-    <label for="email">Adres e-mail:</label>
+    <label for="email" class="col-sm-2 col-from-label">Adres e-mail:</label>
     <input type="email" id="email" required email
            name="email"
            #email="ngModel"
@@ -25,7 +25,7 @@
   </div>
 
   <div>
-    <button type="button" class="btn btn-warning" (click)="goBack()" >Anuluj</button>
+    <button type="button" class="btn btn-warning mr-2" (click)="goBack()" >Anuluj</button>
     <button type="submit"
             class="btn btn-success"
             [disabled]="studentUpdateForm.pristine || !studentUpdateForm.valid">
